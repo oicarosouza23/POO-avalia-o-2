@@ -1,19 +1,13 @@
 package br.com.icaro.estacionamento;
 
-public class Carro extends VeiculoBase {
-    private boolean lavagem;
 
-    public Carro(int horasEstacionado, boolean lavagem) {
-        super(horasEstacionado);
-        this.lavagem = lavagem;
-    }
+	abstract class VeiculoBase implements Veiculo {
+	    protected int horasEstacionado;
 
-    @Override
-    public double calcularPagamento() {
-        double tarifa = horasEstacionado * 5.0;
-        if (lavagem) {
-            tarifa += 50.0;
-        }
-        return tarifa;
-    }
-}
+	    public VeiculoBase(int horasEstacionado) {
+	        this.horasEstacionado = horasEstacionado;
+	    }
+
+	    @Override
+	    public abstract double calcularPagamento();
+	}
